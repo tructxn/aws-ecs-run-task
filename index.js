@@ -65,11 +65,11 @@ const main = async () => {
     let task = await ecs.runTask(taskParams).promise();
     const taskArn = task.tasks[0].taskArn;
     core.setOutput("task-arn", taskArn);
-
-    core.debug("Waiting for task to finish...");
+    core.info("task arn ", taskArn)
+    core.info("Waiting for task to finish...");
     await ecs.waitFor("tasksStopped", { cluster, tasks: [taskArn] }).promise();
 
-    core.debug("Checking status of task");
+    core.info("Checking status of task");
     task = await ecs.describeTasks({ cluster, tasks: [taskArn] }).promise();
     const exitCode = task.tasks[0].containers[0].exitCode;
 
