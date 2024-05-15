@@ -1,4 +1,4 @@
-name: 'Run one-off task on ECS'
+name: 'Run one-off task on ECS and wait for it to finish'
 description: 'Run a task on ECS and waits for ECS task to finish.'
 branding:
   icon: 'activity'
